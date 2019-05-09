@@ -4,10 +4,10 @@ import Todo from "./todo";
 const TodosDisplayer = props => {
   return (
     <div>
-      <div>
+      <div id="todo-displayer-title">
         <span>
           {props.todos.length > 0
-            ? "List of things to do:"
+            ? "List of things to do"
             : "You have nothing to do!"}
         </span>
       </div>

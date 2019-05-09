@@ -8,7 +8,7 @@ class TodoAdder extends React.Component {
 
   render = () => {
     return (
-      <div>
+      <div id="todo-adder">
         <form>
           <label htmlFor="todo-name">Name: </label>
           <input

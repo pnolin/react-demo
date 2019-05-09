@@ -24,6 +24,21 @@ input {
   font-weight: bold;
 }
 
+#todos-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.even-row {
+  background-color: slategrey;
+}
+
+.odd-row {
+  background-color: darkgray;
+}
+
 .todo {
-  margin: 10px 0px;
+  width: 50%;
+  padding: 5px 0px;
 }

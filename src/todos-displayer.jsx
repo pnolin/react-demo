@@ -11,9 +11,13 @@ const TodosDisplayer = props => {
             : "You have nothing to do!"}
         </span>
       </div>
-      <div>
+      <div id="todos-wrapper">
         {props.todos.map((todo, index) => (
-          <Todo key={index} todo={todo} />
+          <Todo
+            className={index % 2 === 0 ? "even-row" : "odd-row"}
+            key={index}
+            todo={todo}
+          />
         ))}
       </div>
     </div>

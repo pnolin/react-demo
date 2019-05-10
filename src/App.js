@@ -13,13 +13,38 @@ export class App extends React.Component {
     return (
       <div className="App">
         <TodoAdder addTodo={this.addTodo} />
-        <TodosDisplayer todos={this.state.todos} />
+        <TodosDisplayer
+          todos={this.state.todos}
+          onDelete={this.deleteTodo}
+          onCheck={this.toggleTodoCompletion}
+        />
       </div>
     );
   };
 
   addTodo = name => {
-    this.setState({ todos: [...this.state.todos, { name }] });
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        { name, done: false, id: this.state.todos.length }
+      ]
+    });
+  };
+
+  toggleTodoCompletion = id => {
+    const todos = this.state.todos.map(todo => {
+      if (todo.id === id) {
+        todo.done = !todo.done;
+      }
+
+      return { ...todo };
+    });
+
+    this.setState({ todos });
+  };
+
+  deleteTodo = id => {
+    this.setState({ todos: this.state.todos.filter(todo => todo.id !== id) });
   };
 }
 

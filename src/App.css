@@ -41,4 +41,15 @@ input {
 .todo {
   width: 50%;
   padding: 5px 0px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.todo span {
+  flex: 1;
+}
+
+.todo div {
+  width: 10%;
 }

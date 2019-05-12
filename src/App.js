@@ -9,6 +9,22 @@ export class App extends React.Component {
     this.state = { todos: [] };
   }
 
+  componentDidMount = () => {
+    fetch("http://localhost:3001/todos", {}).then(res => {
+      res.json().then(data =>
+        this.setState({
+          todos: data.map((todo, index) => {
+            return {
+              name: todo.name,
+              done: this.toggleTodoCompletion.done,
+              id: index
+            };
+          })
+        })
+      );
+    });
+  };
+
   render = () => {
     return (
       <div className="App">

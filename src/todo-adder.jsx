@@ -33,6 +33,13 @@ class TodoAdder extends React.Component {
   };
 
   addTodo = event => {
+    fetch("http://localhost:3001/todos", {
+      body: JSON.stringify({ name: this.state.name, done: false }),
+      headers: {
+        "content-type": "application/json"
+      },
+      method: "post"
+    });
     event.preventDefault();
     this.props.addTodo(this.state.name);
     this.setState({ name: "" });
